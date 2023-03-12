@@ -3,14 +3,14 @@ import "./second-panel.css"
 
 
 function Second({page, link}) {
- 
+
 
     function submitHandler() {
-        page.setPage("firstPage")
+        page.setPage({page: "secondPage"})
     }
 
     function returnSong(text){
-        return(<iframe style={{borderRadius:"12px"}} src= "text" width="100%" height="352"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>)
+        return(<iframe title = "spotify" style={{borderRadius:"12px"}} src= "text" width="100%" height="352"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>)
       }
       
     return( 
@@ -19,8 +19,6 @@ function Second({page, link}) {
             <container>
             returnSong(link);
             </container>
-            <br/><br/><br/><br/><br/><br/><br/><br/>
-            <button  style ={{backgroundColor: "#FC8EAC",  width: "120px", height:"30px", fontSize: "20px"}} > Regenerate </button>
            
         </div>
 )

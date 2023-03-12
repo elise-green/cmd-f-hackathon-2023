@@ -4,20 +4,21 @@ import  Second from "./Components/second-panel";
 import Intro from "./Components/first-panel"
 import { useState } from 'react';
 import select_playlist from "./Components/first-panel"
+import x from "./Components/first-panel"
 
 function App() {
-  const [page, setPage] = useState("firstPage")
+  const [page, setPage] = useState({page: "firstPage", link: undefined})
   const pageList = {
     firstPage: <Intro setPage={setPage}/>,
-    secondPage: <Second link = {x} setPage={setPage}/>
+    secondPage: <Second link = {page.link} setPage={setPage}
+    />
   }
 
   return (
     <div className="App">
-      {pageList[page]}
-      <Second link="https://open.spotify.com/embed/playlist/37i9dQZF1DWZZbwlv3Vmtr?" setPage={setPage}/>
+   {pageList[page.page]}
+  
     </div>
   );
 }
-
 export default App;

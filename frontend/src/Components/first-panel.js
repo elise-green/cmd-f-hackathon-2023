@@ -2,17 +2,16 @@ import React from 'react'
 import "./first-panel.css"
 
 //x = 0;
-function Intro({page, textResult}) {
+function Intro( {setPage, textResult}) {
     function submitHandler() {
-        page.setPage("secondPage")
+        console.log("Button pressed!");
+        setPage({page: "secondPage", link: select_playlist(textResult)})
     }
 
 // REQUIRES: regenerate button pressed
 // when re-generate button is clicked on playlist page, returns the emotion with next highest
 //      confidence level and calls function that updates page with emotion and embeds playlist
-function regenerate() {
 
-}
 // takes co:here output and selects appropriate playlist link 
 //      (which is then sent to playlist page where playlist is embedded)
 function select_playlist(text) {
@@ -44,17 +43,15 @@ function select_playlist(text) {
     return "https://open.spotify.com/embed/playlist/37i9dQZF1DX19jOGJFjAzV?";
   }
 }
-x = select_playlist(textResult);
+var link = select_playlist(textResult);
 
-function returnSong(){
-  return(<iframe style={{borderRadius:"12px"}} src= "select_playlist(textResult)" width="100%" height="352"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>)
-}
+
 
     return (
       <div className="container">
         <br />  <br /> <br /> <br /> <br /> <br /> <br /> <br />
         <h1 style={{ color: '#A3FEB4', fontFamily: 'Kaisei Tokumin'}}>How was your day today?</h1>
-            <form>
+            
                 <label style={{color:'white', fontFamily: 'Arial', fontWeight: 'bold'}}>Write 2-3 sentences about your day so that 
                     we can generate a personalized spotify playlist just for you!</label>
                 <br />
@@ -67,7 +64,7 @@ function returnSong(){
                 <button type='submit' onClick={submitHandler}
                 style={{ borderRadius: '15px', marginTop: '20px', backgroundColor: '#A3FEB4', height: '30px', fontFamily: 'Arial', fontWeight: 'bold' }}>
                     Generate</button>
-            </form>
+          
             <br />
       </div>
     )
