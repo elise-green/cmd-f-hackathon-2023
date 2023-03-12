@@ -74,7 +74,6 @@ function select_playlist(text) {
                   style={{ width: '500px', height: '200px', opacity: 0.7, borderRadius: '15px', fontWeight: 'bold'}}
                 /><br />
                 <button 
-                // onClick={event => {handleGenerate(); submitHandler()}}
                 onClick={event => handleGenerate()}
                 style={{ borderRadius: '15px', marginTop: '20px', backgroundColor: '#A3FEB4', height: '30px', fontFamily: 'Arial', fontWeight: 'bold' }}>
                     Generate</button>
