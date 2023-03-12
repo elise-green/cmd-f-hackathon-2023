@@ -1,0 +1,12 @@
+.container {
+    width: 1440px;
+    height: 1024px;
+    background-color: black;
+}
+
+.h1 {
+    font-size: 20px; 
+    color:#ffffff; 
+    text-align:center; 
+    padding-top:100px;
+}
