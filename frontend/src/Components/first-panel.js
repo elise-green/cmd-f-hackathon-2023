@@ -2,9 +2,9 @@ import React from 'react'
 import "./first-panel.css"
 
 //x = 0;
-function Intro(props) {
+function Intro({page, textResult}) {
     function submitHandler() {
-        props.setPage("secondPage")
+        page.setPage("secondPage")
     }
 
 // REQUIRES: regenerate button pressed
@@ -43,6 +43,11 @@ function select_playlist(text) {
   if (text === "in love") {
     return "https://open.spotify.com/embed/playlist/37i9dQZF1DX19jOGJFjAzV?";
   }
+}
+x = select_playlist(textResult);
+
+function returnSong(){
+  return(<iframe style={{borderRadius:"12px"}} src= "select_playlist(textResult)" width="100%" height="352"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>)
 }
 
     return (
