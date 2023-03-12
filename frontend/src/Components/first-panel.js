@@ -1,11 +1,8 @@
-import { response } from 'express';
-import React, { useState } from 'react'
+import React from 'react'
 import "./first-panel.css"
 
 //x = 0;
-function Intro( {setPage}) {
-    const [textResult, setTextResult] = useState("");
-    
+function Intro( {setPage, textResult}) {
     function submitHandler() {
         console.log("Button pressed!");
         setPage({page: "secondPage", link: select_playlist(textResult)})
@@ -28,7 +25,7 @@ function Intro( {setPage}) {
     
       const data = await response.json();
       console.log(data);
-      setTextResult(data);
+    
       return response;
     } 
 // REQUIRES: regenerate button pressed
@@ -66,7 +63,7 @@ function select_playlist(text) {
     return "https://open.spotify.com/embed/playlist/37i9dQZF1DX19jOGJFjAzV?";
   }
 }
-// var link = select_playlist(textResult);
+var link = select_playlist(textResult);
 
 
 
@@ -82,7 +79,6 @@ function select_playlist(text) {
                 <input
                   type="text"
                   name="userResponse"
-                  value={textResult}
                   id="formInput"
                   style={{ width: '500px', height: '200px', opacity: 0.7, borderRadius: '15px', fontWeight: 'bold'}}
                 /><br />
