@@ -1,10 +1,49 @@
 import React from 'react'
 import "./first-panel.css"
 
+//x = 0;
 function Intro(props) {
     function submitHandler() {
         props.setPage("secondPage")
     }
+
+// REQUIRES: regenerate button pressed
+// when re-generate button is clicked on playlist page, returns the emotion with next highest
+//      confidence level and calls function that updates page with emotion and embeds playlist
+function regenerate() {
+
+}
+// takes co:here output and selects appropriate playlist link 
+//      (which is then sent to playlist page where playlist is embedded)
+function select_playlist(text) {
+  if (text === "happy") {
+    return "https://open.spotify.com/embed/playlist/37i9dQZF1DWSf2RDTDayIx?";
+  }
+  if (text === "sad") {
+    return "https://open.spotify.com/embed/playlist/37i9dQZF1EIg6gLNLe52Bd?";
+  }
+  if (text === "excited") {
+    return "https://open.spotify.com/embed/playlist/37i9dQZF1EIfOPBNnIofh7?";
+  }
+  if (text === "stressed out") {
+    return "https://open.spotify.com/embed/playlist/37i9dQZF1DWUvQoIOFMFUT?";
+  }
+  if (text === "angry") {
+    return "https://open.spotify.com/embed/playlist/37i9dQZF1EIgNZCaOGb0Mi?";
+  }
+  if (text === "calm") {     
+    return "https://open.spotify.com/embed/playlist/37i9dQZF1DWTC99MCpbjP8?";
+  }
+  if (text === "anxious") {
+    return "https://open.spotify.com/embed/playlist/37i9dQZF1EIg42NGihn0NZ?";
+  }
+  if (text === "productive") {
+    return "https://open.spotify.com/embed/playlist/37i9dQZF1DWZZbwlv3Vmtr?";
+  }
+  if (text === "in love") {
+    return "https://open.spotify.com/embed/playlist/37i9dQZF1DX19jOGJFjAzV?";
+  }
+}
 
     return (
       <div className="container">
