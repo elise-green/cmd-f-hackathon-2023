@@ -9,15 +9,16 @@ function Second({setPage, link}) {
         setPage({page: "firstPage"})
     }
 
-    function returnSong(text){
-        return(<iframe title = "spotify" style={{borderRadius:"12px"}} src= "text" width="100%" height="352"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>)
+    function returnSong(){
+        return(<iframe title = "spotify" style={{borderRadius:"12px"}} src={link} width="100%" height="352"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>)
       }
       
     return( 
         <div className='container'>
-            <container>
-            <iframe style={{borderRadius:"12px"}} src={props.url} width="100%" height="352"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </container>
+            <button type='submit' onClick={submitHandler} style={{backgroundColor: "#FC8EAC", float: 'left', width: "60px", height:"30px", fontSize: "20px"}} > Back</button>
+            <div>
+                {returnSong()};
+            </div>
            
         </div>
 )

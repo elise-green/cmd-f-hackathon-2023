@@ -1,15 +1,18 @@
-import React from 'react'
+import { response } from 'express';
+import React, { useState } from 'react'
 import "./first-panel.css"
 
 //x = 0;
-function Intro( {setPage, textResult}) {
+function Intro( {setPage}) {
+    const [textResult, setTextResult] = useState("");
+    
     function submitHandler() {
         console.log("Button pressed!");
         setPage({page: "secondPage", link: select_playlist(textResult)})
     }
 
     async function handleGenerate(event) {
-      event.preventDefault(); 
+      // event.preventDefault(); 
     
       const inputElement = document.getElementById("formInput"); 
       const inputValue = inputElement.value; 
@@ -25,7 +28,7 @@ function Intro( {setPage, textResult}) {
     
       const data = await response.json();
       console.log(data);
-    
+      setTextResult(data);
       return response;
     } 
 // REQUIRES: regenerate button pressed
@@ -63,7 +66,7 @@ function select_playlist(text) {
     return "https://open.spotify.com/embed/playlist/37i9dQZF1DX19jOGJFjAzV?";
   }
 }
-var link = select_playlist(textResult);
+// var link = select_playlist(textResult);
 
 
 
@@ -79,11 +82,12 @@ var link = select_playlist(textResult);
                 <input
                   type="text"
                   name="userResponse"
+                  value={textResult}
                   id="formInput"
                   style={{ width: '500px', height: '200px', opacity: 0.7, borderRadius: '15px', fontWeight: 'bold'}}
                 /><br />
                 <button 
-                onClick={handleGenerate} 
+                onClick={event => {handleGenerate(); submitHandler()}}
                 style={{ borderRadius: '15px', marginTop: '20px', backgroundColor: '#A3FEB4', height: '30px', fontFamily: 'Arial', fontWeight: 'bold' }}>
                     Generate</button>
           
@@ -91,6 +95,6 @@ var link = select_playlist(textResult);
       </div>
     )
   }
-}
+
 
 export default Intro;

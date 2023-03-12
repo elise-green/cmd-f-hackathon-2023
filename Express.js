@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 const cohere = require('cohere-ai'); 
 const cors = require("cors");
 

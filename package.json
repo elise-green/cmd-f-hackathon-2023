@@ -1,11 +1,8 @@
 {
   "dependencies": {
-<<<<<<< HEAD
     "cohere-ai": "^6.0.0",
     "cors": "^2.8.5",
-=======
     "body-parser": "^1.20.2",
->>>>>>> 1afbb632da2d4f926c8c9837c8728bf3a322022b
     "express": "^4.18.2",
     "react-router-dom": "^6.9.0"
   }
