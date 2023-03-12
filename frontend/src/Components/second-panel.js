@@ -1,25 +1,24 @@
 import React from 'react';
 import "./second-panel.css"
-function Second(props) {
+
+
+function Second({setPage, link}) {
+
 
     function submitHandler() {
-        props.setPage("firstPage")
+        setPage({page: "firstPage"})
     }
+
+    function returnSong(){
+        return(<iframe title = "spotify" style={{borderRadius:"12px"}} src={link} width="90%" height="700"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>)
+      }
+      
     return( 
         <div className='container'>
-            <button type='submit' onClick={submitHandler}  style={{backgroundColor: "#FC8EAC", float: 'left', width: "60px", height:"30px", fontSize: "20px"}} > Back</button>
-            <container>
-                <h2>SPOTIFY</h2>
-                <iframe title="myFrame"
-                style={{borderRadius:'12px'}}
-                src="https://open.spotify.com/embed/playlist/7hzUdiqw27hdWI5IhkkoUB?utm_source=generator"
-                 width="80%" height="500"
-                 allow="autoplay; clipboard-write; encrypted-media; 
-                 fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </container>
-            <br/> <br/><br/><br/><br/><br/><br/> <br/><br/> <br/> <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <button  style ={{backgroundColor: "#FC8EAC",  width: "120px", height:"30px", fontSize: "20px"}} > Regenerate </button>
+            <button type='submit' onClick={submitHandler} style={{backgroundColor: "#FC8EAC", float: 'left', width: "60px", height:"30px", fontSize: "20px"}} > Back</button>
+            <div>
+                {returnSong()};
+            </div>
            
         </div>
 )

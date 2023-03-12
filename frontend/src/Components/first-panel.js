@@ -1,18 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./first-panel.css"
 
 //x = 0;
-function Intro(props) {
-    function submitHandler() {
-        props.setPage("secondPage")
-    }
+function Intro( {setPage}) {
+    const [textResult, setTextResult] = useState("");
+    // function submitHandler() {
+    //     console.log("Button pressed!");
+    //     setPage({page: "secondPage", link: select_playlist(textResult)})
+    // }
 
+    async function handleGenerate(event) {
+      // event.preventDefault(); 
+    
+      const inputElement = document.getElementById("formInput"); 
+      const inputValue = inputElement.value; 
+    
+      const url = `http://localhost:8080/`;
+      let response = await fetch(url, {
+        method: `POST`,
+        body: JSON.stringify({ userResponse: inputValue }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+    
+      const data = await response.json();
+      console.log(data);
+      const playlistLink = select_playlist(data);
+    //   setTextResult(data);
+      setPage({page: 'secondPage', link: playlistLink});
+      console.log(textResult);
+      return response;
+    } 
 // REQUIRES: regenerate button pressed
 // when re-generate button is clicked on playlist page, returns the emotion with next highest
 //      confidence level and calls function that updates page with emotion and embeds playlist
-function regenerate() {
 
-}
 // takes co:here output and selects appropriate playlist link 
 //      (which is then sent to playlist page where playlist is embedded)
 function select_playlist(text) {
@@ -44,28 +67,37 @@ function select_playlist(text) {
     return "https://open.spotify.com/embed/playlist/37i9dQZF1DX19jOGJFjAzV?";
   }
 }
+// var link = select_playlist(textResult);
+
+
 
     return (
       <div className="container">
         <br />  <br /> <br /> <br /> <br /> <br /> <br /> <br />
         <h1 style={{ color: '#A3FEB4', fontFamily: 'Kaisei Tokumin'}}>How was your day today?</h1>
-            <form>
+            
                 <label style={{color:'white', fontFamily: 'Arial', fontWeight: 'bold'}}>Write 2-3 sentences about your day so that 
                     we can generate a personalized spotify playlist just for you!</label>
                 <br />
                 <br />
                 <input
                   type="text"
-                  name="user-response"
+                  name="userResponse"
+                  value={textResult}
+                  onInput={(e) => setTextResult(e.target.value)}
+                  id="formInput"
                   style={{ width: '500px', height: '200px', opacity: 0.7, borderRadius: '15px', fontWeight: 'bold'}}
                 /><br />
-                <button type='submit' onClick={submitHandler}
+                <button 
+                // onClick={event => {handleGenerate(); submitHandler()}}
+                onClick={event => handleGenerate()}
                 style={{ borderRadius: '15px', marginTop: '20px', backgroundColor: '#A3FEB4', height: '30px', fontFamily: 'Arial', fontWeight: 'bold' }}>
                     Generate</button>
-            </form>
+          
             <br />
       </div>
     )
   }
+
 
 export default Intro;
