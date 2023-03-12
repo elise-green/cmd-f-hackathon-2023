@@ -93,5 +93,6 @@ var link = select_playlist(textResult);
       </div>
     )
   }
+}
 
 export default Intro;
