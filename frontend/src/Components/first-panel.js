@@ -1,7 +1,12 @@
 import React from 'react'
 import "./first-panel.css"
 
-function Intro() {
+//x = 0;
+function Intro( {setPage, textResult}) {
+    function submitHandler() {
+        console.log("Button pressed!");
+        setPage({page: "secondPage", link: select_playlist(textResult)})
+    }
 
     async function handleGenerate(event) {
       event.preventDefault(); 
@@ -23,13 +28,6 @@ function Intro() {
     
       return response;
     } 
-//x = 0;
-function Intro( {setPage, textResult}) {
-    function submitHandler() {
-        console.log("Button pressed!");
-        setPage({page: "secondPage", link: select_playlist(textResult)})
-    }
-
 // REQUIRES: regenerate button pressed
 // when re-generate button is clicked on playlist page, returns the emotion with next highest
 //      confidence level and calls function that updates page with emotion and embeds playlist
