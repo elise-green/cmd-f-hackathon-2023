@@ -1,6 +1,7 @@
 import React from 'react'
 import "./first-panel.css"
 import { useState, useEffect } from "react"
+import { useNavigate } from "react"
 
 function Intro() {
     return (
@@ -19,7 +20,10 @@ function Intro() {
         style={{ width: '500px', height: '200px' }}
       />
             </form>
-            <button></button>
+            <br />
+            <button
+                onClick={() =>  window.location.href='/second-panel'}>
+                Generate</button>
       </div>
     )
   }
