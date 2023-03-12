@@ -2,6 +2,7 @@
 import './App.css';
 import  Second from "./Components/second-panel";
 import Intro from "./Components/first-panel"
+<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -55,8 +56,25 @@ function App() {
   return (
     <div className="App">
       {(isDone === true) ? <Second url={JSON.stringify(data)}/> : <Intro />};
+=======
+import { useState } from 'react';
+import select_playlist from "./Components/first-panel"
+import x from "./Components/first-panel"
+
+function App() {
+  const [page, setPage] = useState({page: "firstPage", link: undefined})
+  const pageList = {
+    firstPage: <Intro setPage={setPage}/>,
+    secondPage: <Second link = {page.link} setPage={setPage}
+    />
+  }
+
+  return (
+    <div className="App">
+   {pageList[page.page]}
+  
+>>>>>>> 1afbb632da2d4f926c8c9837c8728bf3a322022b
     </div>
   );
 }
-
 export default App;
