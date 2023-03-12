@@ -3,8 +3,6 @@ import './App.css';
 import  Second from "./Components/second-panel";
 import Intro from "./Components/first-panel"
 import { useState } from 'react';
-import select_playlist from "./Components/first-panel"
-import x from "./Components/first-panel"
 
 function App() {
   const [page, setPage] = useState({page: "firstPage", link: undefined})

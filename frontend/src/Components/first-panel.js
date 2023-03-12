@@ -1,16 +1,10 @@
 import React, { useState } from 'react'
 import "./first-panel.css"
 
-//x = 0;
 function Intro( {setPage}) {
     const [textResult, setTextResult] = useState("");
-    // function submitHandler() {
-    //     console.log("Button pressed!");
-    //     setPage({page: "secondPage", link: select_playlist(textResult)})
-    // }
 
     async function handleGenerate(event) {
-      // event.preventDefault(); 
     
       const inputElement = document.getElementById("formInput"); 
       const inputValue = inputElement.value; 
@@ -27,17 +21,11 @@ function Intro( {setPage}) {
       const data = await response.json();
       console.log(data);
       const playlistLink = select_playlist(data);
-    //   setTextResult(data);
       setPage({page: 'secondPage', link: playlistLink});
       console.log(textResult);
       return response;
     } 
-// REQUIRES: regenerate button pressed
-// when re-generate button is clicked on playlist page, returns the emotion with next highest
-//      confidence level and calls function that updates page with emotion and embeds playlist
 
-// takes co:here output and selects appropriate playlist link 
-//      (which is then sent to playlist page where playlist is embedded)
 function select_playlist(text) {
   if (text === "happy") {
     return "https://open.spotify.com/embed/playlist/37i9dQZF1DWSf2RDTDayIx?";
@@ -67,9 +55,6 @@ function select_playlist(text) {
     return "https://open.spotify.com/embed/playlist/37i9dQZF1DX19jOGJFjAzV?";
   }
 }
-// var link = select_playlist(textResult);
-
-
 
     return (
       <div className="container">
