@@ -2,11 +2,11 @@ import React from 'react';
 import "./second-panel.css"
 
 
-function Second({page, link}) {
+function Second({setPage, link}) {
 
 
     function submitHandler() {
-        page.setPage({page: "secondPage"})
+        setPage({page: "firstPage"})
     }
 
     function returnSong(text){
