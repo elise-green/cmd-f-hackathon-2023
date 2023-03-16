@@ -4,7 +4,7 @@ const cohere = require('cohere-ai');
 const cors = require("cors");
 
 const app = express();
-cohere.init('PmvQN4RaHNy1zJvBUbns0SEZF2k2cApudvJyM7Sp');
+cohere.init(<YOUR_API_KEY>);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
