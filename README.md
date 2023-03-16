@@ -11,6 +11,11 @@ React.js, Express.js, Co:here AI api
 ```
 git clone https://github.com/elise-green/cmd-f-hackathon-2023.git
 ```
+2. Input your Co:here api key in Express.js
+
+```
+cohere.init(<YOUR_API_KEY>);
+```
 
 3. Install dependencies:
 
